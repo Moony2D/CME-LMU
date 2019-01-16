@@ -52,12 +52,7 @@ def chebapprox(y, deg, v = None):
     Function to compute the Chebyshev coefficients using interpolation or regression
     """
     m = len(y)
-    if v == None:
-        T = chebmatrix(deg, m)
-    else:
-        z = convert(v[0], v[1], v[2]) 
-        T = chebmatrix(deg, x = z)
-
+    T = chebmatrix(deg, m)
     
     if deg == m-1: # interpolation (default)
         coef = np.linalg.solve(T,y)
